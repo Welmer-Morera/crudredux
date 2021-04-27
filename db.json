@@ -1,0 +1,76 @@
+{
+  "mascotas": [
+    {
+      "id": 1,
+      "nombre": "Pomponio",
+      "sexo": "Macho",
+      "edad": "5",
+      "peso": "10",
+      "dueño": "welmer"
+    },
+    {
+      "id": 2,
+      "nombre": "Terry",
+      "sexo": "Macho",
+      "edad": "4",
+      "peso": "5",
+      "dueño": "Jenny"
+    },
+    {
+      "id": 3,
+      "nombre": "Terra",
+      "sexo": "Hembra",
+      "edad": "3",
+      "peso": "8",
+      "dueño": "Ali"
+    },
+    {
+      "id": 4,
+      "nombre": "Maya",
+      "sexo": "Hembra",
+      "edad": "2",
+      "peso": "15",
+      "dueño": "Keyler"
+    },
+    {
+      "id": 5,
+      "nombre": "Fey",
+      "sexo": "Hembra",
+      "edad": "2",
+      "peso": "16",
+      "dueño": "Gabo"
+    },
+    {
+      "nombre": "Zafira",
+      "sexo": "hembra",
+      "edad": "7",
+      "peso": "3",
+      "dueño": "Jeannethe",
+      "id": 6
+    },
+    {
+      "nombre": "e",
+      "sexo": "hembra",
+      "edad": "3",
+      "peso": "4",
+      "dueño": "eee",
+      "id": 7
+    },
+    {
+      "nombre": "Atena",
+      "sexo": "hembra",
+      "edad": "5",
+      "peso": "4",
+      "dueño": "Santiago",
+      "id": 8
+    },
+    {
+      "nombre": "Vodka",
+      "sexo": "hembra",
+      "edad": "8",
+      "peso": "11",
+      "dueño": "Melvin",
+      "id": 9
+    }
+  ]
+}
