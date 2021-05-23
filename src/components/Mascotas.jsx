@@ -6,7 +6,8 @@ const Mascotas = () => {
 
  const dispatch = useDispatch()
   const  mascotas = useSelector(state=>state.mascotas.mascotas)
-  console.log(mascotas)
+  const error = useSelector(state=>state.mascotas.error)
+  const cargando= useSelector(state=>state.mascotas.loading)
  useEffect(() => {
      const cargarMascotas=()=>dispatch(obtnerMascotasAction())
      cargarMascotas()
@@ -14,6 +15,8 @@ const Mascotas = () => {
     return ( 
         <Fragment>
             <h2 className="text-left "> Mascotas registradas</h2>
+            {error?<p className="font-weight-bold alert alert-danger text-danger">Hubo un error</p>:null}
+            {cargando?<p className="text-center">Cargando...</p>:null}
             <table className="table table-striped">
                 <thead  className="bg-info table-dark">
                     <tr>
@@ -22,7 +25,7 @@ const Mascotas = () => {
                         <th scope="col">Edad</th>
                         <th scope="col">Peso</th>
                         <th scope="col">Dueño</th>
-                        <th scope="col">Acciones</th>
+                        <th  className ="text-center" scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

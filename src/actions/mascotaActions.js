@@ -4,7 +4,11 @@ import {
     AGREGAR_MASCOTA_ERROR,
     DESCARGA_MASCOTAS,
     DESCARGA_MASCOTAS_EXITO,
-    DESCARGA_MASCOTAS_ERROR
+    DESCARGA_MASCOTAS_ERROR,
+    ELIMINAR_MASCOTA,
+    ELIMINAR_MASCOTA_EXITO,
+    ELIMINAR_MASCOTA_ERROR
+
 } from '../types' 
 import clienteAxios from '../config/axios'
 
@@ -86,3 +90,41 @@ const descargaMascotasExitosa=mascotas=>({
     type:DESCARGA_MASCOTAS_ERROR,
     Payload:true
  })
+
+
+ export function eliminarMascotasAction(id) {
+
+    return async(dispatch)=>{
+
+        dispatch(eliminarMascota(id))
+        
+        try {
+           await clienteAxios.delete(`/mascotas/${id}`)
+            dispatch(eliminarMacotaExito())
+            Swal.fire(
+                'ELIMINADO',
+                'Los datos de la mascota fueron eliminados',
+                'success'
+              )
+            
+        } catch (error) {
+            dispatch(eliminarMacotaError())
+        }
+    }
+ }
+
+ const eliminarMascota =id=>({
+     type:ELIMINAR_MASCOTA,
+     payload:id
+ })
+
+  const eliminarMacotaExito=()=>({
+      type:ELIMINAR_MASCOTA_EXITO,
+
+  })
+
+  const eliminarMacotaError=()=>({
+    type:ELIMINAR_MASCOTA_ERROR,
+    payload: true
+
+})
