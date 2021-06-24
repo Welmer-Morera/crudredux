@@ -4,7 +4,7 @@
       "id": 1,
       "nombre": "Pomponio",
       "sexo": "Macho",
-      "edad": "5",
+      "edad": "7",
       "peso": "10",
       "dueño": "welmer"
     },
@@ -14,12 +14,12 @@
       "sexo": "Macho",
       "edad": "4",
       "peso": "5",
-      "dueño": "Jenny"
+      "dueño": "Jenny Morera"
     },
     {
       "id": 3,
       "nombre": "Terra",
-      "sexo": "Hembra",
+      "sexo": "hembra",
       "edad": "3",
       "peso": "8",
       "dueño": "Ali"
@@ -28,7 +28,7 @@
       "id": 4,
       "nombre": "Maya",
       "sexo": "Hembra",
-      "edad": "2",
+      "edad": "3",
       "peso": "15",
       "dueño": "Keyler"
     },
@@ -63,6 +63,14 @@
       "peso": "11",
       "dueño": "Melvin",
       "id": 9
+    },
+    {
+      "nombre": "Bills",
+      "sexo": "macho",
+      "edad": "2",
+      "peso": "2",
+      "dueño": "Welmer",
+      "id": 10
     }
   ]
 }

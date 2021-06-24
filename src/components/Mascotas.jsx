@@ -11,6 +11,7 @@ const Mascotas = () => {
  useEffect(() => {
      const cargarMascotas=()=>dispatch(obtnerMascotasAction())
      cargarMascotas()
+     //eslint-disable-next-line
  }, [])
     return ( 
         <Fragment>

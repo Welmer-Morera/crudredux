@@ -8,7 +8,10 @@ import {
     DESCARGA_MASCOTAS_ERROR,
     ELIMINAR_MASCOTA,
     ELIMINAR_MASCOTA_EXITO,
-    ELIMINAR_MASCOTA_ERROR
+    ELIMINAR_MASCOTA_ERROR,
+    OBTENER_MASCOTA_EDITAR,
+    EDITAR_MASCOTA_EXITO,
+    EDITAR_MASCOTA_ERROR
 
 } from '../types' 
 
@@ -16,7 +19,8 @@ const initialState = {
     mascotas:[],
     error:null,
     loading:false, 
-    mascotaEliminado:null
+    mascotaEliminado:null,
+    mascotaeditar:null
 }
 
 
@@ -38,6 +42,7 @@ export default function(state = initialState, action) {
             case DESCARGA_MASCOTAS_ERROR:
             case AGREGAR_MASCOTA_ERROR:
             case ELIMINAR_MASCOTA_ERROR:
+             case   EDITAR_MASCOTA_ERROR:
                 return{
                     loading:false,
                     error:action.payload
@@ -61,7 +66,20 @@ export default function(state = initialState, action) {
                     mascotas:state.mascotas.filter(mascota=>mascota.id!==state.mascotaEliminado),
                     mascotaEliminado:null
                 }
-                
+            case OBTENER_MASCOTA_EDITAR:
+                return{
+                    ...state,
+                    mascotaeditar:action.payload
+                } 
+            case EDITAR_MASCOTA_EXITO:
+                return{
+                ...state,
+                mascotaeditar:null,
+                mascotas:state.mascotas.map(mascota=>
+                    mascota.id=== action.payload.id ? mascota= action.payload: mascota
+                )
+
+            }   
         default:
             return state;
     }

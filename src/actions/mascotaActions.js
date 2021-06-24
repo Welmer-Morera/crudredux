@@ -7,7 +7,11 @@ import {
     DESCARGA_MASCOTAS_ERROR,
     ELIMINAR_MASCOTA,
     ELIMINAR_MASCOTA_EXITO,
-    ELIMINAR_MASCOTA_ERROR
+    ELIMINAR_MASCOTA_ERROR,
+    OBTENER_MASCOTA_EDITAR,
+    EDITAR_MASCOTA,
+    EDITAR_MASCOTA_EXITO,
+    EDITAR_MASCOTA_ERROR
 
 } from '../types' 
 import clienteAxios from '../config/axios'
@@ -127,4 +131,46 @@ const descargaMascotasExitosa=mascotas=>({
     type:ELIMINAR_MASCOTA_ERROR,
     payload: true
 
+})
+
+export function obtenerMascotaEditar(mascota){
+    return (dispatch)=>{
+        dispatch(obtenerMascotaAction(mascota))
+    }
+}
+
+const obtenerMascotaAction= (mascota)=>({
+    type:OBTENER_MASCOTA_EDITAR,
+    payload:mascota
+})
+
+
+export function editarMascotaAction(mascota) {
+     return async(dispatch)=>{
+         dispatch(editarMascota(mascota))
+
+         try {
+
+            await clienteAxios.put(`/mascotas/${mascota.id}`,mascota)
+            dispatch(edicionExitosa(mascota))
+             
+         } catch (error) {
+             dispatch(edicionError())
+         }
+     }
+    
+}
+
+const  editarMascota=()=>({
+    type:EDITAR_MASCOTA,
+    
+})
+
+const edicionExitosa =(mascota)=>({
+    type:EDITAR_MASCOTA_EXITO,
+    payload:mascota
+})
+
+const edicionError =()=>({
+    type:EDITAR_MASCOTA_ERROR,
 })

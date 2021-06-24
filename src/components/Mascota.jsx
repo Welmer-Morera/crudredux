@@ -1,12 +1,13 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import {eliminarMascotasAction} from '../actions/mascotaActions'
+import {eliminarMascotasAction,obtenerMascotaEditar} from '../actions/mascotaActions'
 import Swal from 'sweetalert2'
 const Mascota = ({mascota}) => {
     const {  id,nombre, sexo,edad, peso,dueño}=mascota
 
     const dispatch = useDispatch()
+    const history  = useHistory();
 
     const confirmarEliminarMascota = id =>{
         Swal.fire({
@@ -29,6 +30,13 @@ const Mascota = ({mascota}) => {
         
     }
 
+    const redireccionarEdicion = mascota =>{
+        dispatch(obtenerMascotaEditar(mascota))
+        history.push(`/mascotas/editar/${mascota.id}`)
+        
+
+    }
+
 
     return ( 
         <tr>
@@ -38,9 +46,9 @@ const Mascota = ({mascota}) => {
             <td><span className="font-weight-bold">{peso} Kg</span></td>
             <td>{dueño}</td>
             <td className="acciones text-center">
-                <Link to={`/mascotas/editar/${id}`}  className="btn btn-primary mr-2">
+                <button  type ="button"   className="btn btn-primary mr-2" onClick={()=>redireccionarEdicion(mascota)}>
                     Editar
-                </Link>
+                </button>
                 <button  type ="button" className="btn btn-danger mr-2" 
                 onClick={()=>confirmarEliminarMascota(id)}>
                     Eliminar
